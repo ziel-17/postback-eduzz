@@ -1,45 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Postback-eduzz by deveduzz</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Postback-eduzz</h1>
+      <h2 class="project-tagline">Receba postback com as informações de cada transação na Eduzz</h2>
+      <a href="https://github.com/deveduzz/postback-eduzz" class="btn">View on GitHub</a>
+      <a href="https://github.com/deveduzz/postback-eduzz/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/deveduzz/postback-eduzz/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-      <header>
-        <h1>Postback-eduzz</h1>
-        <p>Receba postback com as informações de cada transação na Eduzz</p>
-      </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/deveduzz/postback-eduzz" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/deveduzz/postback-eduzz/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/deveduzz/postback-eduzz/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h3>
+    <section class="main-content">
+      <h3>
 <a id="sobre-o-postback" class="anchor" href="#sobre-o-postback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sobre o postback</h3>
 
 <p>O recurso de postback permite que você receba notificações de alguns eventos que ocorrem dentro do sistema, possibilitando que alem do produtor, o afiliado tambem tenha um melhor controle sobre seu negócio.</p>
@@ -53,6 +33,10 @@
 <li>TRACKER.BOLETO   - Acionado sempre que um boleto é visualizado</li>
 </ul>
 
+<p>As informações de alteração de status de compra estão disponíveis apenas para os produtores através do webhook. Muito em breve essas notificações estarão unificadas via postback tambem para os afiliados</p>
+
+<hr>
+
 <h3>
 <a id="cadastro-de-url" class="anchor" href="#cadastro-de-url" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cadastro de URL</h3>
 
@@ -62,11 +46,133 @@
 <li>Na listagem de suas campanhas, clique no ícone conforme indicado na imagem abaixo: <img src="https://raw.githubusercontent.com/deveduzz/postback-eduzz/master/postback1.jpg" alt="alt tag">
 </li>
 <li>Na tela seguinte, cadastre a URL onde você deseja receber as notificações do sistema   <img src="https://raw.githubusercontent.com/deveduzz/postback-eduzz/master/postback2.jpg" alt="alt tag">
-</li>
+***</li>
 </ol>
 
 <h3>
-<a id="recebendo-post" class="anchor" href="#recebendo-post" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recebendo POST</h3>
+<a id="requisições-válidas-e-retentativas" class="anchor" href="#requisi%C3%A7%C3%B5es-v%C3%A1lidas-e-retentativas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requisições válidas e retentativas</h3>
+
+<p>No caso de falha, são realizados 5 tentativas no intervalo de 12 horas ( 2m,6m,24m,2h,12h), após esse periodo sem sucesso, a postback é cancelado.
+Consideramos válidas todas as requisicoes que retornam o status HTTP 200.</p>
+
+<hr>
+
+<h3>
+<a id="validação" class="anchor" href="#valida%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validação</h3>
+
+<p>Enviamos via <code>header</code> o parametro <code>X-EduzzApi</code> , que deve ser comparada com a Chave de API do Afiliado/Produtor que receberá o postback.</p>
+
+<hr>
+
+<h3>
+<a id="parametros-enviados" class="anchor" href="#parametros-enviados" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parametros enviados</h3>
+
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event.action</code></td>
+<td>Ação de evento (TRACKER.CHECKOUT,TRACKER.BOLETO,TRACKER.THANKYOU)</td>
+</tr>
+<tr>
+<td><code>event.datetime</code></td>
+<td>Data e hora do evento no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25</td>
+</tr>
+<tr>
+<td><code>invoice.id</code></td>
+<td>ID da fatura se houver.</td>
+</tr>
+<tr>
+<td><code>invoice.value</code></td>
+<td>Valor da fatura se houver</td>
+</tr>
+<tr>
+<td><code>invoice.status</code></td>
+<td>Status da fatura ( Ver tabela de status de pagamento )</td>
+</tr>
+<tr>
+<td><code>invoice.paymentmethod</code></td>
+<td>Forma de pagamento ( Ver tabela de forma de pagamento )</td>
+</tr>
+<tr>
+<td><code>invoice.datetime</code></td>
+<td>Data de criação da fatura ( Clicou em pagar ) no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25</td>
+</tr>
+<tr>
+<td><code>invoice.paymentdate</code></td>
+<td>Data de pagamento se houver no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26</td>
+</tr>
+<tr>
+<td><code>product.id</code></td>
+<td>Código do conteudo</td>
+</tr>
+<tr>
+<td><code>product.name</code></td>
+<td>Nome do conteudo</td>
+</tr>
+<tr>
+<td><code>customer.id</code></td>
+<td>ID do cliente se houver</td>
+</tr>
+<tr>
+<td><code>customer.name</code></td>
+<td>Nome do cliente se houver</td>
+</tr>
+<tr>
+<td><code>customer.email</code></td>
+<td>Email do cliente se houver</td>
+</tr>
+<tr>
+<td><code>partner.id</code></td>
+<td>ID do afiliado se houver</td>
+</tr>
+<tr>
+<td><code>partner.name</code></td>
+<td>Nome do afiliado se houver</td>
+</tr>
+<tr>
+<td><code>partner.email</code></td>
+<td>E-mail do afiliado se houver</td>
+</tr>
+<tr>
+<td><code>tracker.funnelkey</code></td>
+<td>Código da campanha se houver</td>
+</tr>
+<tr>
+<td><code>tracker.utm_source</code></td>
+<td>Referencia informada na momento do clique (Ex: <a href="http://edz.la/XXXX?a=815959&amp;utm_source=BANNER01">http://edz.la/XXXX?a=815959&amp;utm_source=BANNER01</a>)</td>
+</tr>
+<tr>
+<td><code>tracker.utm_content</code></td>
+<td>Referencia informada no momento do clique (Ex: <a href="http://edz.la/XXXX?a=815959&amp;utm_content=BANNER02">http://edz.la/XXXX?a=815959&amp;utm_content=BANNER02</a>)</td>
+</tr>
+<tr>
+<td><code>tracker.utm_campaign</code></td>
+<td>Referencia informada no momento do clique (Ex: <a href="http://edz.la/XXXX?a=815959&amp;utm_campaign=BANNER03">http://edz.la/XXXX?a=815959&amp;utm_campaign=BANNER03</a>)</td>
+</tr>
+<tr>
+<td><code>tracker.utm_medium</code></td>
+<td>Referencia informada no momento do clique (Ex: <a href="http://edz.la/XXXX?a=815959&amp;utm_medium=BANNER01">http://edz.la/XXXX?a=815959&amp;utm_medium=BANNER01</a>)</td>
+</tr>
+<tr>
+<td><code>tracker.ip</code></td>
+<td>IP de origem da transação</td>
+</tr>
+<tr>
+<td><code>cart.key</code></td>
+<td>Código da pagina de checkout</td>
+</tr>
+<tr>
+<td><code>cart.datetime</code></td>
+<td>Data de primeira abertura do checkout no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25</td>
+</tr>
+</tbody>
+</table>
 
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
@@ -79,13 +185,15 @@
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/deveduzz">deveduzz</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/deveduzz/postback-eduzz">Postback-eduzz</a> is maintained by <a href="https://github.com/deveduzz">deveduzz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+    </section>
+
+  
   </body>
 </html>
