@@ -3,7 +3,7 @@
 ## Sobre o postback
 O recurso de postback permite que você receba notificações de alguns eventos que ocorrem dentro do sistema, possibilitando que alem do produtor, o afiliado tambem tenha um melhor controle sobre seu negócio.
 
-No momento estão disponíveis apenas as ações referentes ao `rastreamento` de campanhas:
+No momento estão disponíveis apenas as ações referentes ao **rastreamento** de campanhas:
 * TRACKER.CHECKOUT - Acionado ao carregamento de um carrinho
 * TRACKER.THANKYOU - Acionado quando o cliente chega até a página de obrigado  
 * TRACKER.BOLETO   - Acionado sempre que um boleto é visualizado
@@ -86,5 +86,9 @@ ID	| Forma de pagamento
 `25` 	| Paypal Internacional
 ***
 
-### Support or Contact
-Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# Exemplos
+### RAW BODY
+ `cart.datetime=2016-10-26+23%3A11%3A14&cart.key=000000-WJWUPJ-ZFZVIP-GBN9Y7&event.action=TRACKER.CHECKOUT&event.datetime=2016-10-26+23%3A12%3A01&request.datetime=2016-10-26+23%3A12%3A42&request.id=EDZ45PB&request.queue=b12962c493c3cafe6db4039515a6c0c7&request.tries=1&request.type=TRACKER.CHECKOUT&tracker.funnelkey=KKAAM&tracker.ip=177.43.204.90&tracker.utm_campaign=TESTE_TRACKER2&tracker.utm_content=&tracker.utm_medium=TESTE_TRACKER2&tracker.utm_source=TESTE_TRACKER`
+
+### Suporte
+Encontrou algum problema? Entre em contato com nosso [suporte](mailto://suporte@eduzz.com) e nós ficaremos felizes em ajuda-lo.
