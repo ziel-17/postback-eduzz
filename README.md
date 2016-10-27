@@ -54,5 +54,36 @@ Enviamos via `header` o parametro `X-EduzzApi` , que deve ser comparada com a Ch
 | `cart.key` | Código da pagina de checkout
 | `cart.datetime` | Data de primeira abertura do checkout no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25
 
+## Tabela de status da fatura
+
+ID  | Status | Descrição
+--- | ------ | -----------
+`1` | Aberto | Fatura foi gerada ( Clicou em pagar e não foi autorizado, ou apenas gerou um boleto ) 
+`3` | Paga | Compra foi paga, o cliente já esta apto a receber o produto 
+`4` | Cancelada | Fatura Cancelada pela Eduzz
+`6` | Aguardando Reembolso | Cliente solicitou reembolso, porem o mesmo ainda não foi efetuado
+`7` | Reembolsado | Cliente já foi reembolsado pela eduzz
+`8` | Em Análise | Cliente efetuou o pagamento, porém esta em análise pela instituição financeira
+`11` | Em Recuperacao | Fatura entrou para o processo de recuperação
+
+## Tabela de formas de pagamento
+ID	| Forma de pagamento
+----	| -----
+`1` 	| Boleto Bancário
+`9` 	| Paypal
+`13` 	| Visa
+`15` 	| Mastercard
+`16` 	| Diners
+`17` 	| Débito Banco do Brasil
+`18` 	| Débito Bradesco
+`19` 	| Débito Itaú
+`21` 	| Hipercard
+`22` 	| Débito Banrisul
+`23` 	| Hiper
+`24` 	| Elo
+`25` 	| Paypal Internacional
+
+
+
 ### Support or Contact
 Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
