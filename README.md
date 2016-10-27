@@ -1,4 +1,6 @@
-### Sobre o postback
+# Postback Eduzz
+
+## Sobre o postback
 O recurso de postback permite que você receba notificações de alguns eventos que ocorrem dentro do sistema, possibilitando que alem do produtor, o afiliado tambem tenha um melhor controle sobre seu negócio.
 
 No momento estão disponíveis apenas as ações referentes ao `rastreamento` de campanhas:
@@ -9,22 +11,22 @@ No momento estão disponíveis apenas as ações referentes ao `rastreamento` de
 As informações de alteração de status de compra estão disponíveis apenas para os produtores através do webhook. Muito em breve essas notificações estarão unificadas via postback tambem para os afiliados
 
 ***
-### Cadastro de URL
+## Cadastro de URL
 1. Logue em  sua conta e acesse o menu `Afiliado >> Meus Funis / Campanhas`
 2. Na listagem de suas campanhas, clique no ícone conforme indicado na imagem abaixo: ![alt tag](https://raw.githubusercontent.com/deveduzz/postback-eduzz/master/postback1.jpg)
 3. Na tela seguinte, cadastre a URL onde você deseja receber as notificações do sistema   ![alt tag](https://raw.githubusercontent.com/deveduzz/postback-eduzz/master/postback2.jpg)
 ***
 
-### Requisições válidas e retentativas
+## Requisições válidas e retentativas
 No caso de falha, são realizados 5 tentativas no intervalo de 12 horas ( 2m,6m,24m,2h,12h), após esse periodo sem sucesso, a postback é cancelado.
 Consideramos válidas todas as requisicoes que retornam o status HTTP 200.
 ***
 
-### Validação
+## Validação
 Enviamos via `header` o parametro `X-EduzzApi` , que deve ser comparada com a Chave de API do Afiliado/Produtor que receberá o postback.
 ***
 
-### Parametros enviados
+## Parametros enviados
 
 
 | Parâmetro | Descrição |
@@ -33,8 +35,8 @@ Enviamos via `header` o parametro `X-EduzzApi` , que deve ser comparada com a Ch
 | `event.datetime` | Data e hora do evento no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25
 | `invoice.id` | ID da fatura se houver.
 | `invoice.value` | Valor da fatura se houver
-| `invoice.status` | Status da fatura ( Ver tabela de status de pagamento )
-| `invoice.paymentmethod` | Forma de pagamento ( Ver tabela de forma de pagamento )
+| `invoice.status` | Status da fatura ( Ver [tabela de status de pagamento](#tabela-de-status-da-fatura) )
+| `invoice.paymentmethod` | Forma de pagamento ( Ver [tabela de formas de pagamento](#tabela-de-formas-de-pagamento) )
 | `invoice.datetime` | Data de criação da fatura ( Clicou em pagar ) no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25
 | `invoice.paymentdate` | Data de pagamento se houver no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26
 | `product.id` | Código do conteudo
@@ -54,7 +56,7 @@ Enviamos via `header` o parametro `X-EduzzApi` , que deve ser comparada com a Ch
 | `cart.key` | Código da pagina de checkout
 | `cart.datetime` | Data de primeira abertura do checkout no formato YYYY-MM-DD HH:MM:SS ex: 2016-10-26 22:02:25
 
-## Tabela de status da fatura
+### Tabela de status da fatura
 
 ID  | Status | Descrição
 --- | ------ | -----------
@@ -66,7 +68,7 @@ ID  | Status | Descrição
 `8` | Em Análise | Cliente efetuou o pagamento, porém esta em análise pela instituição financeira
 `11` | Em Recuperacao | Fatura entrou para o processo de recuperação
 
-## Tabela de formas de pagamento
+### Tabela de formas de pagamento
 ID	| Forma de pagamento
 ----	| -----
 `1` 	| Boleto Bancário
@@ -82,8 +84,7 @@ ID	| Forma de pagamento
 `23` 	| Hiper
 `24` 	| Elo
 `25` 	| Paypal Internacional
-
-
+***
 
 ### Support or Contact
 Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
