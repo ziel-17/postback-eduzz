@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Postback-eduzz by deveduzz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Postback-eduzz</h1>
-      <h2 class="project-tagline">Receba postback com as informações de cada transação na Eduzz</h2>
-      <a href="https://github.com/deveduzz/postback-eduzz" class="btn">View on GitHub</a>
-      <a href="https://github.com/deveduzz/postback-eduzz/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/deveduzz/postback-eduzz/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
 
-    <section class="main-content">
-      <h3>
-<a id="sobre-o-postback" class="anchor" href="#sobre-o-postback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sobre o postback</h3>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Postback-eduzz : Receba postback com as informações de cada transação na Eduzz">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Postback-eduzz</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/deveduzz/postback-eduzz">View on GitHub</a>
+
+          <h1 id="project_title">Postback-eduzz</h1>
+          <h2 id="project_tagline">Receba postback com as informações de cada transação na Eduzz</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/deveduzz/postback-eduzz/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/deveduzz/postback-eduzz/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="postback-eduzz" class="anchor" href="#postback-eduzz" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Postback Eduzz</h1>
+
+<h2>
+<a id="sobre-o-postback" class="anchor" href="#sobre-o-postback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sobre o postback</h2>
 
 <p>O recurso de postback permite que você receba notificações de alguns eventos que ocorrem dentro do sistema, possibilitando que alem do produtor, o afiliado tambem tenha um melhor controle sobre seu negócio.</p>
 
@@ -37,8 +52,8 @@
 
 <hr>
 
-<h3>
-<a id="cadastro-de-url" class="anchor" href="#cadastro-de-url" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cadastro de URL</h3>
+<h2>
+<a id="cadastro-de-url" class="anchor" href="#cadastro-de-url" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cadastro de URL</h2>
 
 <ol>
 <li>Logue em  sua conta e acesse o menu <code>Afiliado &gt;&gt; Meus Funis / Campanhas</code>
@@ -49,23 +64,23 @@
 ***</li>
 </ol>
 
-<h3>
-<a id="requisições-válidas-e-retentativas" class="anchor" href="#requisi%C3%A7%C3%B5es-v%C3%A1lidas-e-retentativas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requisições válidas e retentativas</h3>
+<h2>
+<a id="requisições-válidas-e-retentativas" class="anchor" href="#requisi%C3%A7%C3%B5es-v%C3%A1lidas-e-retentativas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requisições válidas e retentativas</h2>
 
 <p>No caso de falha, são realizados 5 tentativas no intervalo de 12 horas ( 2m,6m,24m,2h,12h), após esse periodo sem sucesso, a postback é cancelado.
 Consideramos válidas todas as requisicoes que retornam o status HTTP 200.</p>
 
 <hr>
 
-<h3>
-<a id="validação" class="anchor" href="#valida%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validação</h3>
+<h2>
+<a id="validação" class="anchor" href="#valida%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validação</h2>
 
 <p>Enviamos via <code>header</code> o parametro <code>X-EduzzApi</code> , que deve ser comparada com a Chave de API do Afiliado/Produtor que receberá o postback.</p>
 
 <hr>
 
-<h3>
-<a id="parametros-enviados" class="anchor" href="#parametros-enviados" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parametros enviados</h3>
+<h2>
+<a id="parametros-enviados" class="anchor" href="#parametros-enviados" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parametros enviados</h2>
 
 <table>
 <thead>
@@ -77,7 +92,7 @@ Consideramos válidas todas as requisicoes que retornam o status HTTP 200.</p>
 <tbody>
 <tr>
 <td><code>event.action</code></td>
-<td>Ação de evento (TRACKER.CHECKOUT,TRACKER.BOLETO,TRACKER.THANKYOU)</td>
+<td>Ação de evento ( <code>TRACKER.CHECKOUT, TRACKER.BOLETO, TRACKER.THANKYOU</code> )</td>
 </tr>
 <tr>
 <td><code>event.datetime</code></td>
@@ -93,11 +108,11 @@ Consideramos válidas todas as requisicoes que retornam o status HTTP 200.</p>
 </tr>
 <tr>
 <td><code>invoice.status</code></td>
-<td>Status da fatura ( Ver tabela de status de pagamento )</td>
+<td>Status da fatura ( Ver <a href="#tabela-de-status-da-fatura">tabela de status de pagamento</a> )</td>
 </tr>
 <tr>
 <td><code>invoice.paymentmethod</code></td>
-<td>Forma de pagamento ( Ver tabela de forma de pagamento )</td>
+<td>Forma de pagamento ( Ver <a href="#tabela-de-formas-de-pagamento">tabela de formas de pagamento</a> )</td>
 </tr>
 <tr>
 <td><code>invoice.datetime</code></td>
@@ -174,26 +189,148 @@ Consideramos válidas todas as requisicoes que retornam o status HTTP 200.</p>
 </tbody>
 </table>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h3>
+<a id="tabela-de-status-da-fatura" class="anchor" href="#tabela-de-status-da-fatura" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tabela de status da fatura</h3>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Status</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Aberto</td>
+<td>Fatura foi gerada ( Clicou em pagar e não foi autorizado, ou apenas gerou um boleto )</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Paga</td>
+<td>Compra foi paga, o cliente já esta apto a receber o produto</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Cancelada</td>
+<td>Fatura Cancelada pela Eduzz</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>Aguardando Reembolso</td>
+<td>Cliente solicitou reembolso, porem o mesmo ainda não foi efetuado</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Reembolsado</td>
+<td>Cliente já foi reembolsado pela eduzz</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>Em Análise</td>
+<td>Cliente efetuou o pagamento, porém esta em análise pela instituição financeira</td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td>Em Recuperacao</td>
+<td>Fatura entrou para o processo de recuperação</td>
+</tr>
+</tbody>
+</table>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="tabela-de-formas-de-pagamento" class="anchor" href="#tabela-de-formas-de-pagamento" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tabela de formas de pagamento</h3>
 
-<p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Forma de pagamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Boleto Bancário</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>Paypal</td>
+</tr>
+<tr>
+<td><code>13</code></td>
+<td>Visa</td>
+</tr>
+<tr>
+<td><code>15</code></td>
+<td>Mastercard</td>
+</tr>
+<tr>
+<td><code>16</code></td>
+<td>Diners</td>
+</tr>
+<tr>
+<td><code>17</code></td>
+<td>Débito Banco do Brasil</td>
+</tr>
+<tr>
+<td><code>18</code></td>
+<td>Débito Bradesco</td>
+</tr>
+<tr>
+<td><code>19</code></td>
+<td>Débito Itaú</td>
+</tr>
+<tr>
+<td><code>21</code></td>
+<td>Hipercard</td>
+</tr>
+<tr>
+<td><code>22</code></td>
+<td>Débito Banrisul</td>
+</tr>
+<tr>
+<td><code>23</code></td>
+<td>Hiper</td>
+</tr>
+<tr>
+<td><code>24</code></td>
+<td>Elo</td>
+</tr>
+<tr>
+<td><code>25</code></td>
+<td>Paypal Internacional</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h1>
+<a id="exemplos" class="anchor" href="#exemplos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemplos</h1>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="raw-body" class="anchor" href="#raw-body" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RAW BODY</h3>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<p><code>cart.datetime=2016-10-26+23%3A11%3A14&amp;cart.key=000000-WJWUPJ-ZFZVIP-GBN9Y7&amp;event.action=TRACKER.CHECKOUT&amp;event.datetime=2016-10-26+23%3A12%3A01&amp;request.datetime=2016-10-26+23%3A12%3A42&amp;request.id=EDZ45PB&amp;request.queue=b12962c493c3cafe6db4039515a6c0c7&amp;request.tries=1&amp;request.type=TRACKER.CHECKOUT&amp;tracker.funnelkey=KKAAM&amp;tracker.ip=177.43.204.90&amp;tracker.utm_campaign=TESTE_TRACKER2&amp;tracker.utm_content=&amp;tracker.utm_medium=TESTE_TRACKER2&amp;tracker.utm_source=TESTE_TRACKER</code></p>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/deveduzz/postback-eduzz">Postback-eduzz</a> is maintained by <a href="https://github.com/deveduzz">deveduzz</a>.</span>
+<h3>
+<a id="suporte" class="anchor" href="#suporte" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Suporte</h3>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+<p>Encontrou algum problema? Entre em contato com nosso <a href="mailto://suporte@eduzz.com">suporte</a> e nós ficaremos felizes em ajuda-lo.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Postback-eduzz maintained by <a href="https://github.com/deveduzz">deveduzz</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
+    </div>
 
-    </section>
+    
 
-  
   </body>
 </html>
